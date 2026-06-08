@@ -1,3 +1,4 @@
+
 const productos = [
   {
     id: 1,
@@ -23,7 +24,7 @@ const productos = [
     categoria: "Calzado",
     precio: 45999,
     imagen: "/img/zapatillas.jpg",
-    descripcion: "Zapatillas cómodas para running, suela amortiguada.",
+    descripcion: "Zapatillas cómodas ,con plataforma.",
     stock: 5
   },
   {
@@ -37,11 +38,11 @@ const productos = [
   },
   {
     id: 5,
-    nombre: "Campera Rompevientos",
+    nombre: "Campera de Cuero",
     categoria: "Indumentaria",
     precio: 52999,
-    imagen: "/img/campera.jpg",
-    descripcion: "Campera liviana ideal para días de viento.",
+    imagen: "/img/campera_cuero.jpg",
+    descripcion: "Campera de 100% cuero.",
     stock: 3
   },
   {
@@ -58,13 +59,13 @@ const productos = [
     nombre: "Buzo Oversize",
     categoria: "Indumentaria",
     precio: 27999,
-    imagen: "/img/buzo.jpg",
+    imagen: "/img/buzo.webp",
     descripcion: "Buzo estilo oversize, remera termica interior.",
     stock: 7
   },
   {
     id: 8,
-    nombre: "Short Deportivo",
+    nombre: "Short",
     categoria: "Indumentaria",
     precio: 15999,
     imagen: "/img/short.jpg",
@@ -76,17 +77,17 @@ const productos = [
     nombre: "Medias",
     categoria: "Accesorios",
     precio: 2999,
-    imagen: "/img/medias.jpg",
+    imagen: "/img/medias.jpeg",
     descripcion: "Pack x3 pares de medias de algodón.",
     stock: 25
   },
   {
     id: 10,
-    nombre: "Remera Deportiva",
+    nombre: "Remera",
     categoria: "Indumentaria",
     precio: 18999,
-    imagen: "/img/remeradeportiva.jpg",
-    descripcion: "Remera dry-fit, ideal para hacer deporte.",
+    imagen: "/img/remera_alt.jpg",
+    descripcion: "Remera negra ajustada de mangas cortas.",
     stock: 14
   },
   {
