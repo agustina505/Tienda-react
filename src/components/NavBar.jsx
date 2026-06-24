@@ -6,7 +6,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 //import { Navbar, Nav, Container } from "react-bootstrap";
 
-
 const NavBarEx = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">

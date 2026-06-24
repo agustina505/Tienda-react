@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Inicio = () => {
   return (
     <Container>
-      {/* ⭐ BANNER SLIDER ⭐ */}
       <Carousel className="mb-5">
         <Carousel.Item>
           <img

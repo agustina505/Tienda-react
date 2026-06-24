@@ -54,7 +54,6 @@ const Carrito = ({ carrito, setCarrito }) => {
     ).join('\n')}\n\nTotal: $${totalGeneral.toLocaleString()}\n\nGracias por tu compra!`;
     
     alert(mensaje);
-
   };
 
   // Si el carrito está vacío, mostrar mensaje
