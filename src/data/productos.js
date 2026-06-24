@@ -13,7 +13,7 @@ const productos = [
     id: 2,
     nombre: "Pantalón Jeans",
     categoria: "Indumentaria",
-    precio: 34999,
+    precio: 19999,
     imagen: "/img/jeans.jpg",
     descripcion: "Jeans clásico de corte recto, tela resistente.",
     stock: 8
@@ -111,5 +111,3 @@ const productos = [
 ];
 
 export default productos;
-
-//para probar despues quiza lo cambie a tienda ropa negra/tipo goth

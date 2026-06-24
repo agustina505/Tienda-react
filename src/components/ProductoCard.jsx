@@ -29,7 +29,7 @@ const ProductoCard = ({ producto, agregarAlCarrito }) => {
 
         <div className="d-flex gap-2 mt-auto">
           <Link to={`/producto/${producto.id}`} className="w-50">
-            <Button variant="outline-primary" size="sm" className="w-100">
+            <Button variant="outline-dark" size="sm" className="w-100">
               Ver detalle
             </Button>
           </Link>
