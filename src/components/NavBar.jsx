@@ -7,11 +7,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 //import { Navbar, Nav, Container } from "react-bootstrap";
 
-const NavBarEx = () => {
+const NavBarEx = ({ tema, toggleTema }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/" className="d-flex align-items-center">
+        <Navbar.Brand  as={Link} to="/" className="d-flex align-items-center">
           <img
             src="/img/cuervo_logo_closeup.png"
             alt="Logo Nevermore"
@@ -34,6 +34,14 @@ const NavBarEx = () => {
             <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
             <Nav.Link as={Link} to="/carrito">Carrito</Nav.Link>
             <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+            <Button
+              variant="outline-light"
+              size="sm"
+              className="ms-lg-3 mt-2 mt-lg-0"
+              onClick={toggleTema}
+            >
+              {tema === 'light' ? '🌙 Modo oscuro' : '☀️ Modo claro'}
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

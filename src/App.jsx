@@ -20,6 +20,29 @@ function App() {
     }
   });
 
+  // Estado del tema (light/dark), leyendo lo guardado en localStorage
+  const [tema, setTema] = useState(() => {
+    try {
+      return localStorage.getItem('tema') || 'light';
+    } catch (error) {
+      return 'light';
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }, [carrito]);
+
+  // Cada vez que cambia el tema, lo aplicamos al HTML y lo guardamos
+  useEffect(() => {
+    document.documentElement.setAttribute('data-bs-theme', tema);
+    localStorage.setItem('tema', tema);
+  }, [tema]);
+
+  const toggleTema = () => {
+    setTema((prevTema) => (prevTema === 'light' ? 'dark' : 'light'));
+  };
+
   // Cada vez que el carrito cambia, lo guardamos en localStorage
   useEffect(() => {
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -42,7 +65,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBarEx />
+      <NavBarEx tema={tema} toggleTema={toggleTema} />
       <div className="container mt-4">
         <Routes>
           <Route path="/" element={<Inicio />} />
