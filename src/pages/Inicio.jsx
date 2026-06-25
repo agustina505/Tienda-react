@@ -8,7 +8,7 @@ const Inicio = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/public/img/banner1.jpeg"
+            src="/img/banner1.jpeg"
             alt="Banner 1"
             style={{ height: "400px", objectFit: "cover" }}
             onError={(e) => {
@@ -24,7 +24,7 @@ const Inicio = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/public/img/banner2.webp"
+            src="/img/banner2.webp"
             alt="Banner 2"
             style={{ height: "400px", objectFit: "cover" }}
             onError={(e) => {
@@ -40,7 +40,7 @@ const Inicio = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/public/img/banner3.jpg"
+            src="/img/banner3.jpg"
             alt="Banner 3"
             style={{ height: "400px", objectFit: "cover" }}
             onError={(e) => {
@@ -58,7 +58,7 @@ const Inicio = () => {
       <Row className="text-center mb-4 align-items-center">
         <Col>
           <img
-            src="/public/img/cuervo_logo_trans.png"
+            src="/img/cuervo_logo_trans.png"
             alt="Logo Nevermore"
             style={{ height: "80px", marginBottom: "10px" }}
             onError={(e) => {

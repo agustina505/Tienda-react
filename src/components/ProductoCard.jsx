@@ -1,5 +1,6 @@
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CarritoItem from "../components/CarritoItem";
 
 const ProductoCard = ({ producto, agregarAlCarrito }) => {
   const sinStock = producto.stock === 0;

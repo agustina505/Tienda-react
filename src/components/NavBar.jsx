@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 //import { Navbar, Nav, Container } from "react-bootstrap";
 
 const NavBarEx = () => {
@@ -29,9 +30,10 @@ const NavBarEx = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="/productos">Productos</Nav.Link>
-            <Nav.Link href="/carrito">Carrito</Nav.Link>
+            <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+            <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
+            <Nav.Link as={Link} to="/carrito">Carrito</Nav.Link>
+            <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

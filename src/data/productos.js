@@ -107,7 +107,17 @@ const productos = [
     imagen: "/img/lentes.jpg",
     descripcion: "Lentes con protección UV, marco resistente.",
     stock: 9
-  }
+  },
+  {
+  id: 13,
+  nombre: "Botas",
+  categoria: "Calzado",
+  precio: 69999,
+  imagen: "/img/botas.webp",
+  descripcion: "Botas.",
+  stock: 0  //sin stock
+}
+
 ];
 
 export default productos;

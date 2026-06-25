@@ -1,14 +1,29 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavBarEx from './components/NavBar';
 import Footer from './components/Footer';
 import Inicio from './pages/Inicio';
 import Productos from './pages/Productos';
 import DetalleProducto from './pages/DetalleProducto';
 import Carrito from './pages/Carrito';
+import Contacto from './pages/Contacto';
 
 function App() {
-  const [carrito, setCarrito] = useState([]);
+  // Inicializar el carrito leyendo de localStorage (si existe)
+  const [carrito, setCarrito] = useState(() => {
+    try {
+      const carritoGuardado = localStorage.getItem('carrito');
+      return carritoGuardado ? JSON.parse(carritoGuardado) : [];
+    } catch (error) {
+      console.error('Error al leer el carrito de localStorage:', error);
+      return [];
+    }
+  });
+
+  // Cada vez que el carrito cambia, lo guardamos en localStorage
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+  }, [carrito]);
 
   const agregarAlCarrito = (producto, cantidad) => {
     setCarrito((prevCarrito) => {
@@ -22,7 +37,7 @@ function App() {
       }
       return [...prevCarrito, { ...producto, cantidad }];
     });
-    alert(`✅ Agregaste ${producto.nombre} al carrito`);
+    alert(`Agregaste ${producto.nombre} al carrito`);
   };
 
   return (
@@ -42,6 +57,10 @@ function App() {
           <Route 
             path="/carrito" 
             element={<Carrito carrito={carrito} setCarrito={setCarrito} />} 
+          />
+          <Route 
+            path="/contacto" 
+            element={<Contacto carrito={carrito} />} 
           />
         </Routes>
       </div>
