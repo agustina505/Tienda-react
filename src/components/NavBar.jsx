@@ -7,7 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 //import { Navbar, Nav, Container } from "react-bootstrap";
 
-const NavBarEx = ({ tema, toggleTema }) => {
+const NavBarEx = ({ tema, toggleTema, favoritosCount = 0 }) => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -34,6 +34,17 @@ const NavBarEx = ({ tema, toggleTema }) => {
             <Nav.Link as={Link} to="/productos">Productos</Nav.Link>
             <Nav.Link as={Link} to="/carrito">Carrito</Nav.Link>
             <Nav.Link as={Link} to="/contacto">Contacto</Nav.Link>
+            <Nav.Link href="/favoritos" className="position-relative">
+              ⭐ Favoritos
+                {favoritosCount > 0 && (
+                  <span 
+                    className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style={{ fontSize: "10px" }}
+                    >
+                    {favoritosCount}
+                </span>
+              )}
+            </Nav.Link>
             <Button
               variant="outline-light"
               size="sm"

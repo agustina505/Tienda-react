@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, InputGroup } from "react-bootstrap";
 import ProductoCard from "../components/ProductoCard";
 import productos from "../data/productos";
 
-const Productos = ({ agregarAlCarrito }) => {
+const Productos = ({ agregarAlCarrito, esFavorito, toggleFavorito }) => {
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("");
 
@@ -58,6 +58,8 @@ const Productos = ({ agregarAlCarrito }) => {
               <ProductoCard
                 producto={producto}
                 agregarAlCarrito={agregarAlCarrito}
+                esFavorito={esFavorito} 
+                toggleFavorito={toggleFavorito}
               />
             </Col>
           ))

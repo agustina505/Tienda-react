@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { Button, Container, Row, Col, Card } from 'react-bootstrap';
 import productos from '../data/productos';
 
-const DetalleProducto = ({ agregarAlCarrito }) => {
+const DetalleProducto = ({ agregarAlCarrito, esFavorito, toggleFavorito }) => {
   // Obtener el ID de la URL
   const { id } = useParams();
   
@@ -22,6 +22,9 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
   }
 
   const sinStock = producto.stock === 0;
+  
+  // ⭐ CORREGIDO: Definir si es favorito (con condicional por si no viene la prop)
+  const favorito = esFavorito ? esFavorito(producto.id) : false;
 
   return (
     <Container className="py-4">
@@ -42,7 +45,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
               alt={producto.nombre}
               style={{ height: "400px", objectFit: "contain" }}
               onError={(e) => {
-                e.target.src = "/img/no-disponible.jpg";
+                e.target.src = "https://via.placeholder.com/400x400?text=Imagen+no+disponible";
               }}
             />
           </Card>
@@ -50,7 +53,22 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
 
         {/* Columna de la información del producto */}
         <Col md={6}>
-          <h1 className="mb-3">{producto.nombre}</h1>
+          <div className="d-flex justify-content-between align-items-start">
+            <h1 className="mb-3">{producto.nombre}</h1>
+            
+            {/* ⭐ CORREGIDO: Solo mostrar el botón si toggleFavorito existe */}
+            {toggleFavorito && (
+              <Button
+                variant={favorito ? "danger" : "outline-secondary"}
+                size="lg"
+                className="rounded-circle"
+                style={{ width: "60px", height: "60px", flexShrink: 0 }}
+                onClick={() => toggleFavorito(producto.id)}
+              >
+                {favorito ? "❤️" : "🤍"}
+              </Button>
+            )}
+          </div>
           
           <p className="text-muted mb-2">
             <strong>Categoría:</strong> {producto.categoria}
@@ -68,7 +86,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
             <strong>Stock disponible:</strong> {producto.stock} unidades
           </p>
 
-          {/* Características principales (opcional pero recomendado) */}
+          {/* Características principales */}
           <Card className="bg-light mb-4">
             <Card.Body>
               <h6>Características principales:</h6>
@@ -84,7 +102,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
           
           {/* Botón de agregar al carrito */}
           <Button 
-            variant="outline-success" 
+            variant="primary" 
             size="lg"
             className="w-100"
             disabled={sinStock}

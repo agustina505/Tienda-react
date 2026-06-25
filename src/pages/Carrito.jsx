@@ -50,7 +50,7 @@ const Carrito = ({ carrito, setCarrito }) => {
       return;
     }
     
-    const mensaje = `COMPRA SIMULADA\n\nProductos:\n${carrito.map(item => 
+    const mensaje = `COMPRA\n\nProductos:\n${carrito.map(item => 
       `- ${item.nombre}: ${item.cantidad} x $${item.precio.toLocaleString()} = $${(item.precio * item.cantidad).toLocaleString()}`
     ).join('\n')}\n\nTotal: $${totalGeneral.toLocaleString()}\n\nGracias por tu compra!`;
     

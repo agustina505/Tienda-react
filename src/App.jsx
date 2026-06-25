@@ -7,6 +7,7 @@ import Productos from './pages/Productos';
 import DetalleProducto from './pages/DetalleProducto';
 import Carrito from './pages/Carrito';
 import Contacto from './pages/Contacto';
+import Favoritos from './pages/Favoritos';
 
 function App() {
   // Inicializar el carrito leyendo de localStorage (si existe)
@@ -19,6 +20,36 @@ function App() {
       return [];
     }
   });
+
+  // Estado para favoritos
+  const [favoritos, setFavoritos] = useState(() => {
+    // Cargar favoritos desde localStorage al iniciar
+    const favoritosGuardados = localStorage.getItem('favoritos');
+    return favoritosGuardados ? JSON.parse(favoritosGuardados) : [];
+  });
+
+    useEffect(() => {
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }, [favoritos]);
+
+  // Función para alternar favoritos
+  const toggleFavorito = (productoId) => {
+    setFavoritos(prevFavoritos => {
+      if (prevFavoritos.includes(productoId)) {
+        // Si ya está en favoritos, lo quitamos
+        return prevFavoritos.filter(id => id !== productoId);
+      } else {
+        // Si no está, lo agregamos
+        return [...prevFavoritos, productoId];
+      }
+    });
+  };
+
+  // Función para verificar si un producto es favorito
+  const esFavorito = (productoId) => {
+    return favoritos.includes(productoId);
+  };
+
 
   // Estado del tema (light/dark), leyendo lo guardado en localStorage
   const [tema, setTema] = useState(() => {
@@ -71,19 +102,23 @@ function App() {
           <Route path="/" element={<Inicio />} />
           <Route 
             path="/productos" 
-            element={<Productos agregarAlCarrito={agregarAlCarrito} />} 
+            element={<Productos agregarAlCarrito={agregarAlCarrito} esFavorito={esFavorito} toggleFavorito={toggleFavorito} />} 
           />
           <Route 
             path="/producto/:id" 
-            element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} />} 
+            element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} esFavorito={esFavorito} toggleFavorito={toggleFavorito} />} 
           />
           <Route 
             path="/carrito" 
-            element={<Carrito carrito={carrito} setCarrito={setCarrito} />} 
+            element={<Carrito carrito={carrito} setCarrito={setCarrito} esFavorito={esFavorito} toggleFavorito={toggleFavorito} />} 
           />
           <Route 
             path="/contacto" 
             element={<Contacto carrito={carrito} />} 
+          />
+          <Route 
+            path="/favoritos" 
+            element={<Favoritos favoritos={favoritos} esFavorito={esFavorito} toggleFavorito={toggleFavorito} agregarAlCarrito={agregarAlCarrito}/>} 
           />
         </Routes>
       </div>

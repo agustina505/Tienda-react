@@ -20,11 +20,11 @@ const productos = [
   },
   {
     id: 3,
-    nombre: "Zapatillas Deportivas",
+    nombre: "Zapatillas",
     categoria: "Calzado",
     precio: 45999,
     imagen: "/img/zapatillas.jpg",
-    descripcion: "Zapatillas cómodas ,con plataforma.",
+    descripcion: "Zapatillas cómodas, con plataforma.",
     stock: 5
   },
   {
@@ -69,7 +69,7 @@ const productos = [
     categoria: "Indumentaria",
     precio: 15999,
     imagen: "/img/short.jpg",
-    descripcion: "Short con elastico, ideal para entrenar.",
+    descripcion: "Short negro con cadenas.",
     stock: 12
   },
   {
@@ -114,8 +114,8 @@ const productos = [
   categoria: "Calzado",
   precio: 69999,
   imagen: "/img/botas.webp",
-  descripcion: "Botas.",
-  stock: 0  //sin stock
+  descripcion: "Botas de cuero con plataforma.",
+  stock: 0  //prueba sin stock
 }
 
 ];

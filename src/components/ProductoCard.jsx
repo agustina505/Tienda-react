@@ -1,12 +1,23 @@
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CarritoItem from "../components/CarritoItem";
 
-const ProductoCard = ({ producto, agregarAlCarrito }) => {
+const ProductoCard = ({ producto, agregarAlCarrito, esFavorito, toggleFavorito }) => {
   const sinStock = producto.stock === 0;
+  const favorito = esFavorito(producto.id);
 
   return (
     <Card className="h-100 shadow-sm">
+      <Button
+        variant={favorito ? "danger" : "outline-secondary"}
+        size="sm"
+        className="position-absolute top-0 start-0 m-2 rounded-circle"
+        style={{ width: "40px", height: "40px", zIndex: 10 }}
+        onClick={() => toggleFavorito(producto.id)}
+      >
+        {favorito ? "❤️" : "🤍"}
+      </Button>
+
       <Card.Img
         variant="top"
         src={producto.imagen}
